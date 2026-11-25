@@ -28,7 +28,7 @@ const splitList = (value: string) => value.split(',').map((part) => part.trim())
 
 function toDraft(project: ProjectRow): Draft {
   return {
-    name: project.name, slug: project.slug, type: project.type, desc: project.desc,
+    name: project.name, slug: project.slug, type: project.type, desc: project.description,
     tags: (project.tags ?? []).join(', '), visual: project.visual, featured: project.featured,
     live_url: project.live_url ?? '', prototype_url: project.prototype_url ?? '',
     behance_url: project.behance_url ?? '', category: project.category, role: project.role,
@@ -86,7 +86,7 @@ export default function AdminDashboard({
         name: draft.name.trim(),
         slug: draft.slug.trim() || slugify(draft.name),
         type: draft.type.trim(),
-        desc: draft.desc.trim(),
+        description: draft.desc.trim(),
         tags: splitList(draft.tags),
         visual: draft.visual.trim() || 'pocket',
         featured: draft.featured,
@@ -109,7 +109,7 @@ export default function AdminDashboard({
         sort_order: Number(draft.sort_order) || 0,
       };
 
-      if (!payload.name || !payload.desc || !payload.category) {
+      if (!payload.name || !payload.description || !payload.category) {
         throw new Error('Project name, description and category are required.');
       }
 
