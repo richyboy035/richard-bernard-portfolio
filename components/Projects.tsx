@@ -106,7 +106,7 @@ function ProjectVisual({
     <div
       className={`relative w-full overflow-hidden bg-gradient-to-br ${
         item.palette
-      } ${fitContent && item.image ? 'h-auto' : 'h-full'}`}
+      } ${fitContent && imageSource ? 'h-auto' : 'h-full'}`}
     >
       {!fitContent && (
         <div
