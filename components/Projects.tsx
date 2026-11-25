@@ -250,8 +250,8 @@ export default function Projects({
     if (selectedIndex < 0) return;
 
     setSelectedProject(
-      projects[
-        (selectedIndex + direction + projectItems.length) % projects.length
+      projectItems[
+        (selectedIndex + direction + projectItems.length) % projectItems.length
       ]
     );
   };
