@@ -5,6 +5,8 @@ import Footer from '@/components/Footer';
 import { projects as fallbackProjects } from '@/data/projects';
 import { getPublishedProjects } from '@/lib/projects';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Projects — Richard Bernard',
   description: 'Selected product design and development projects by Richard Bernard.',
