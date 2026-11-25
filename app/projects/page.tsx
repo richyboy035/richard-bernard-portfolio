@@ -2,13 +2,16 @@ import type { Metadata } from 'next';
 import NavBar from '@/components/NavBar';
 import Projects from '@/components/Projects';
 import Footer from '@/components/Footer';
+import { projects as fallbackProjects } from '@/data/projects';
+import { getPublishedProjects } from '@/lib/projects';
 
 export const metadata: Metadata = {
   title: 'Projects — Richard Bernard',
   description: 'Selected product design and development projects by Richard Bernard.',
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const publishedProjects = await getPublishedProjects();
   return (
     <main id="home" className="min-h-screen pt-20">
       <NavBar />
@@ -23,7 +26,7 @@ export default function ProjectsPage() {
           only where supporting information is available.
         </p>
       </header>
-      <Projects showAllLink={false} />
+      <Projects showAllLink={false} projects={publishedProjects ?? fallbackProjects} />
       <section className="container border-t border-white/[.08] py-20 md:py-28" aria-labelledby="real-world-work">
         <p className="eyebrow text-white/45">Professional and client work</p>
         <h2 id="real-world-work" className="display mt-4 text-4xl font-bold md:text-5xl">
