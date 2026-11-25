@@ -6,7 +6,7 @@ import {
   Mail,
 } from 'lucide-react';
 
-import { contactEmail } from '@/data/contact';
+import { contactEmail, contactLinkedIn } from '@/data/contact';
 
 export default function Footer({
   invitation,
@@ -52,7 +52,7 @@ export default function Footer({
 
         {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/in/richardbernard10/"
+          href={contactLinkedIn}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Visit Richard Bernard's LinkedIn profile (opens in a new tab)"
