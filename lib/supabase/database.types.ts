@@ -13,7 +13,7 @@ export type ProjectRow = {
   slug: string;
   name: string;
   type: string;
-  desc: string;
+  description: string;
   tags: string[];
   visual: string;
   featured: boolean;
