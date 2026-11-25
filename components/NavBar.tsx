@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Download, Menu, X } from 'lucide-react';
 
 const navigation = [
   { label: 'Home', href: '/#home' },
@@ -95,6 +95,14 @@ export default function NavBar() {
             </Link>
           ))}
 
+          <a
+            href="/Richard-Bernard-CV.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 text-sm font-medium text-white/75 transition hover:border-lime/50 hover:text-lime"
+          >
+            <Download size={14} aria-hidden="true" /> Download CV
+          </a>
+
           <Link
             href="/#contact"
             className="inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-ink transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(197,255,54,.2)]"
@@ -136,6 +144,15 @@ export default function NavBar() {
                   {item.label}
                 </Link>
               ))}
+
+              <a
+                href="/Richard-Bernard-CV.pdf"
+                download
+                onClick={closeMenu}
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm text-white/75 transition hover:border-lime/50 hover:text-lime"
+              >
+                <Download size={15} aria-hidden="true" /> Download CV
+              </a>
 
               <Link
                 href="/#contact"
