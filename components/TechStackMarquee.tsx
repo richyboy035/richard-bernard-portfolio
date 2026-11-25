@@ -42,6 +42,8 @@ const technologies = [
   { name: 'GitHub', icon: siGithub, color: '#ffffff' },
   { name: 'WordPress', icon: siWordpress },
   { name: 'Shopify', icon: siShopify },
+  { name: 'Supabase', icon: { hex: '3ECF8E', path: 'M21.6 9.2H12l7.3-8.4c.7-.8 2-.2 1.8.9L19.9 9.2h1.7c.8 0 1.2.9.7 1.5L8.3 23.5c-.8.7-2 .1-1.8-.9L8.1 15H2.4c-.8 0-1.2-.9-.7-1.5L13.8.5c.8-.7 2-.1 1.8.9L14.4 9.2h7.2z' } },
+  { name: 'Capacitor', icon: { hex: '119EFF', path: 'M12 0 2.7 5.4v13.2L12 24l9.3-5.4V5.4L12 0zm0 3.2 6.5 3.8v10L12 20.8l-6.5-3.8V7L12 3.2z' } },
 ];
 
 const motionPreference = '(prefers-reduced-motion: reduce)';
