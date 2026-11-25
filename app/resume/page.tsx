@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/NavBar';
 import PrintResumeButton from '@/components/PrintResumeButton';
 
-import { contactEmail } from '@/data/contact';
+import { contactEmail, contactLinkedIn } from '@/data/contact';
 import { experience } from '@/data/experience';
 import { projects } from '@/data/projects';
 
@@ -77,7 +77,7 @@ export default function ResumePage() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/richardbernard10/"
+              href={contactLinkedIn}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Richard's LinkedIn profile"
