@@ -12,18 +12,21 @@ import {
   X,
 } from 'lucide-react';
 
-import { projects } from '@/data/projects';
+import { projects as fallbackProjects } from '@/data/projects';
+import type { Project } from '@/data/projects';
 
-type ProjectItem = (typeof projects)[number];
+type ProjectItem = Project;
 
 const filters = ['All', 'Product Design', 'Development'];
 
 function ProjectVisual({
   kind,
   fitContent = false,
+  coverImage,
 }: {
   kind: string;
   fitContent?: boolean;
+  coverImage?: string;
 }) {
   const visuals: Record<
     string,
@@ -97,6 +100,7 @@ function ProjectVisual({
   };
 
   const item = visuals[kind] ?? visuals.pocket;
+  const imageSource = coverImage || item.image;
 
   return (
     <div
@@ -114,9 +118,9 @@ function ProjectVisual({
         />
       )}
 
-      {item.image ? (
+      {imageSource ? (
         <Image
-          src={item.image}
+          src={imageSource}
           alt={`${item.title} project screens`}
           width={item.width ?? 1200}
           height={item.height ?? 800}
@@ -131,6 +135,7 @@ function ProjectVisual({
               : 'absolute inset-0 h-full w-full object-contain object-center p-3 sm:p-5'
           }
           loading="lazy"
+          unoptimized={Boolean(coverImage)}
         />
       ) : (
         <div className="relative flex h-full w-full flex-col justify-between p-5 sm:p-7 md:p-8">
@@ -207,7 +212,11 @@ function CaseStudySection({
   );
 }
 
-export default function Projects({ showAllLink = true }: { showAllLink?: boolean } = {}) {
+export default function Projects({
+  showAllLink = true,
+  projects: projectData = fallbackProjects,
+}: { showAllLink?: boolean; projects?: ProjectItem[] } = {}) {
+  const projectItems = projectData;
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
     null
@@ -217,13 +226,13 @@ export default function Projects({ showAllLink = true }: { showAllLink?: boolean
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
-  const filteredProjects = projects.filter(
+  const filteredProjects = projectItems.filter(
     (project) =>
       activeFilter === 'All' || project.category === activeFilter
   );
 
   const selectedIndex = selectedProject
-    ? projects.findIndex((project) => project.name === selectedProject.name)
+    ? projectItems.findIndex((project) => project.name === selectedProject.name)
     : -1;
 
   const openProject = (project: ProjectItem) => {
@@ -242,7 +251,7 @@ export default function Projects({ showAllLink = true }: { showAllLink?: boolean
 
     setSelectedProject(
       projects[
-        (selectedIndex + direction + projects.length) % projects.length
+        (selectedIndex + direction + projectItems.length) % projects.length
       ]
     );
   };
@@ -324,12 +333,14 @@ export default function Projects({ showAllLink = true }: { showAllLink?: boolean
           </h2>
         </div>
 
-        <a
-          href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-lime transition hover:gap-3"
-        >
-          View all projects <ArrowUpRight size={16} />
-        </a>
+        {showAllLink && (
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm text-lime transition hover:gap-3"
+          >
+            View all projects <ArrowUpRight size={16} />
+          </Link>
+        )}
       </div>
 
       <div className="mb-8 flex flex-wrap gap-2">
@@ -378,7 +389,7 @@ export default function Projects({ showAllLink = true }: { showAllLink?: boolean
                 className="relative block w-full shrink-0 overflow-hidden rounded-xl bg-black/20 text-left"
                 aria-label={`Open ${project.name} case study`}
               >
-                <ProjectVisual kind={project.visual} fitContent />
+                <ProjectVisual kind={project.visual} fitContent coverImage={project.coverImage} />
               </button>
 
               <div className="relative flex flex-1 p-4">
@@ -528,7 +539,7 @@ export default function Projects({ showAllLink = true }: { showAllLink?: boolean
                       : ''
                   }`}
                 >
-                  <ProjectVisual kind={selectedProject.visual} />
+                  <ProjectVisual kind={selectedProject.visual} coverImage={selectedProject.coverImage} />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
