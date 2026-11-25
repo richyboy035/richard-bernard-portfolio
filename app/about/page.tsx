@@ -83,16 +83,7 @@ type Contribution = {
   type?: string;
 };
 
-const contributions: Contribution[] = [
-  ...experience,
-  {
-    company: 'SellerAfrica',
-    role: 'Frontend Development / E-commerce',
-    type: 'Project contribution',
-    detail:
-      'Contributed to improving the SellerAfrica marketplace experience, working on storefront interfaces, responsive layouts, product browsing experiences, homepage components and interactive UI improvements.',
-  },
-];
+const contributions: Contribution[] = [...experience];
 
 export default function AboutPage() {
   return (
@@ -112,10 +103,10 @@ export default function AboutPage() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl">
-              I&apos;m Richard Bernard, a Product Designer, Frontend
-              Developer and Digital Product Builder. I bring design
-              and technology together to create useful, compelling
-              digital experiences.
+              I&apos;m Richard Bernard, a Lagos, Nigeria-based Product
+              Designer, Frontend Developer and Digital Product Builder.
+              I bring design and technology together to shape useful,
+              compelling digital experiences.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -204,7 +195,16 @@ export default function AboutPage() {
               engineering turns those ideas into something tangible.
               Working across both disciplines helps me think about
               the details, interactions and practical decisions that
-              make a product feel cohesive.
+              make a product feel cohesive. My range covers the journey
+              from product discovery and interface design through
+              frontend implementation, testing and deployment.
+            </p>
+
+            <p>
+              My product explorations include e-commerce, fintech,
+              property technology, group savings and power-monitoring
+              experiences. I enjoy working across the full design-to-build
+              process while staying focused on the people using the product.
             </p>
           </div>
         </Reveal>
