@@ -7,7 +7,7 @@ function toProject(row: ProjectRow): Project {
     slug: row.slug,
     name: row.name,
     type: row.type,
-    desc: row.desc,
+    desc: row.description,
     tags: row.tags ?? [],
     visual: row.visual,
     featured: row.featured,
