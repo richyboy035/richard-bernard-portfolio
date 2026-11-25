@@ -30,7 +30,7 @@ const skills = [
   {
     category: 'Development & Platforms',
     items:
-      'PHP, Node.js, Git, GitHub, WordPress, Shopify',
+      'PHP, Node.js, Supabase, Capacitor, Git, GitHub, WordPress, Shopify',
   },
   {
     category: 'Design Tools',
