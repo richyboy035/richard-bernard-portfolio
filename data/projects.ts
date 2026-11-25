@@ -1,5 +1,7 @@
 export type Project = {
   name: string;
+  slug?: string;
+  coverImage?: string;
   type: string;
   desc: string;
   tags: string[];
