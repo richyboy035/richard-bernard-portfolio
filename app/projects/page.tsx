@@ -25,7 +25,7 @@ export default function ProjectsPage() {
       </header>
       <Projects showAllLink={false} />
       <section className="container border-t border-white/[.08] py-20 md:py-28" aria-labelledby="real-world-work">
-        <p className="eyebrow text-white/45">Professional experience</p>
+        <p className="eyebrow text-white/45">Professional and client work</p>
         <h2 id="real-world-work" className="display mt-4 text-4xl font-bold md:text-5xl">
           Real-world <span className="text-lime">contributions.</span>
         </h2>
