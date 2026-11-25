@@ -35,20 +35,7 @@ const projects = [
     category: 'POWER MONITORING',
     image: '/images/projects/powerwatch.png',
     accent: '#c5ff36',
-  },
-  {
-    name: 'SellerAfrica',
-    category: 'E-COMMERCE',
-    image: null,
-    accent: '#f4bd76',
-  },
-  {
-    name: 'Verbum',
-    category: 'IN DEVELOPMENT',
-    image: null,
-    accent: '#b9a0ff',
-    inDevelopment: true,
-  },
+  }
 ];
 
 function ProjectCard({
