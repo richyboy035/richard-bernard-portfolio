@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -324,8 +325,8 @@ export default function Projects() {
         </div>
 
         <a
-          href="/#contact"
-          className="hidden items-center gap-2 text-sm text-lime transition hover:gap-3 md:flex"
+          href="/projects"
+          className="inline-flex items-center gap-2 text-sm text-lime transition hover:gap-3"
         >
           View all projects <ArrowUpRight size={16} />
         </a>
