@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #090a09; color: #f5f6f2; font-family: 'DM Sans', sans-serif; }
+::selection { background: #c8ff45; color: #090a09; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.container { width: min(1320px, calc(100% - 48px)); margin-inline: auto; }
+.grid-noise { position: relative; isolation: isolate; }
+.grid-noise::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .15; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(to bottom, black, transparent 75%); }
+.lime-glow { box-shadow: 0 0 90px rgba(200,255,69,.14); }
+.display { font-family: 'Manrope', sans-serif; letter-spacing: -.075em; }
+.eyebrow { letter-spacing: .28em; text-transform: uppercase; font-size: 11px; font-weight: 700; }
+.project-card { transition: border-color .3s, background .3s; }
+.project-card:hover { border-color: rgba(200,255,69,.28); background: #171917; }
+.project-card:hover .project-arrow { transform: translate(3px,-3px); background: #c8ff45; color: #090a09; }
+.project-arrow { transition: transform .3s, background .3s, color .3s; }
+@media (max-width: 720px) { .container { width: min(100% - 32px, 1320px); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@media print {
+  @page { margin: 15mm; }
+  html, body { background: white !important; color: #111 !important; color-scheme: light; }
+  .resume-chrome, .resume-print-button { display: none !important; }
+  .resume-document { width: 100%; max-width: none; margin: 0; padding: 0; }
+  .resume-document * { color: #111 !important; border-color: #ccc !important; box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important; }
+  .resume-document .display { letter-spacing: -.03em; }
+  .resume-header { padding-bottom: 6mm; }
+  .resume-header h1 { font-size: 30pt; }
+  .resume-header > p { font-size: 9pt; }
+  .resume-header .mt-5 { margin-top: 3mm; }
+  .resume-header .mt-4, .resume-contact { margin-top: 3mm; }
+  .resume-content { display: flex; flex-direction: column; gap: 7mm; padding-top: 7mm; }
+  .resume-main { order: 0; }
+  .resume-sidebar { order: 1; }
+  .resume-main > * + *, .resume-sidebar > * + * { margin-top: 7mm; }
+  .resume-section > div, .resume-section > p { margin-top: 3mm; }
+  .resume-section h2 { font-size: 9pt; }
+  .resume-section p { font-size: 10pt; line-height: 1.45; }
+  .resume-section h3 { font-size: 11pt; }
+  .resume-section .space-y-7 > * + *, .resume-section .space-y-5 > * + * { margin-top: 4mm; }
+  .resume-item, .resume-header { break-inside: avoid; }
+  .resume-section h2 { break-after: avoid; }
+}
