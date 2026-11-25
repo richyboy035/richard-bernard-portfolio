@@ -2,7 +2,7 @@
 -- Run after the initial schema migration. Safe to re-run by slug.
 
 insert into public.projects (
-  slug, name, type, desc, tags, visual, featured,
+  slug, name, type, description, tags, visual, featured,
   prototype_url, behance_url, category, role, year,
   overview, challenge, approach, solution, highlights,
   key_decision, outcome, technologies, status, sort_order
