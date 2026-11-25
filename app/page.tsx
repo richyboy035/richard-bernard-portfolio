@@ -8,6 +8,8 @@ import TechStackMarquee from '@/components/TechStackMarquee';
 import { projects as fallbackProjects } from '@/data/projects';
 import { getPublishedProjects } from '@/lib/projects';
 
+export const dynamic = 'force-dynamic';
+
 const stats = [
   { value: '5', label: 'Product concepts' },
   { value: '4+', label: 'Years experience' },
