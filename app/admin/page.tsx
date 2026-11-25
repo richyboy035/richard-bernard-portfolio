@@ -17,7 +17,8 @@ export default async function AdminPage() {
 
   const supabase = await createSupabaseServerClient();
   const { data, error: claimsError } = await supabase.auth.getClaims();
-  const userId = data?.claims?.sub;
+  const claims = data?.claims;
+  const userId = claims?.sub;
 
   if (claimsError || typeof userId !== 'string') redirect('/admin/login');
 
@@ -52,7 +53,7 @@ export default async function AdminPage() {
     <AdminDashboard
       initialProjects={projects ?? []}
       initialMessages={messages ?? []}
-      adminEmail={typeof data.claims.email === 'string' ? data.claims.email : 'Administrator'}
+      adminEmail={typeof claims?.email === 'string' ? claims.email : 'Administrator'}
     />
   );
 }
