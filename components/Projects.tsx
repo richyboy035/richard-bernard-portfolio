@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -207,7 +208,7 @@ function CaseStudySection({
   );
 }
 
-export default function Projects() {
+export default function Projects({ showAllLink = true }: { showAllLink?: boolean } = {}) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(
     null
@@ -600,6 +601,20 @@ export default function Projects() {
                   </div>
                 </div>
 
+                <section className="mt-8 grid gap-3 border-t border-white/10 pt-7 sm:grid-cols-2 lg:grid-cols-4" aria-label="Case study outcome summary">
+                  {[
+                    { label: 'Problem', value: selectedProject.challenge },
+                    { label: 'My role', value: selectedProject.role },
+                    { label: 'Key decision', value: selectedProject.keyDecision },
+                    { label: 'Result', value: selectedProject.outcome },
+                  ].map((item) => (
+                    <div key={item.label} className="rounded-xl border border-white/[.08] bg-white/[.025] p-4">
+                      <p className="text-[10px] uppercase tracking-[.18em] text-lime/70">{item.label}</p>
+                      <p className="mt-2 text-xs leading-6 text-white/65">{item.value}</p>
+                    </div>
+                  ))}
+                </section>
+
                 <CaseStudySection
                   title="Project overview"
                   index={0}
@@ -651,7 +666,7 @@ export default function Projects() {
                 </CaseStudySection>
 
                 <CaseStudySection
-                  title="Outcome & reflection"
+                  title="Outcome & scope"
                   index={5}
                   reduceMotion={shouldReduceMotion}
                 >
