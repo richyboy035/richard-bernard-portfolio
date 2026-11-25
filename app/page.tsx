@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import TechStackMarquee from '@/components/TechStackMarquee';
 
 const stats = [
-  { value: '5+', label: 'Major projects' },
+  { value: '5', label: 'Featured projects' },
   { value: '3+', label: 'Years experience' },
   { value: '2', label: 'Core disciplines' },
 ];
