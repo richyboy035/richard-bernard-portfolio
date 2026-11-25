@@ -5,6 +5,8 @@ import Projects from '@/components/Projects';
 import Intro from '@/components/Intro';
 import Footer from '@/components/Footer';
 import TechStackMarquee from '@/components/TechStackMarquee';
+import { projects as fallbackProjects } from '@/data/projects';
+import { getPublishedProjects } from '@/lib/projects';
 
 const stats = [
   { value: '5', label: 'Product concepts' },
@@ -12,7 +14,8 @@ const stats = [
   { value: '2', label: 'Core disciplines' },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const publishedProjects = await getPublishedProjects();
   return (
     <main id="home">
       <NavBar />
@@ -49,7 +52,7 @@ export default function Home() {
       </section>
 
       <TechStackMarquee />
-      <Projects />
+      <Projects projects={publishedProjects ?? fallbackProjects} />
       <Intro />
       <Footer />
     </main>
