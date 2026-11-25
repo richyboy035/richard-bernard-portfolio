@@ -16,6 +16,7 @@ export type Project = {
   approach: string;
   solution: string;
   highlights: string[];
+  keyDecision: string;
   outcome: string;
   technologies: string[];
 };
@@ -46,8 +47,10 @@ export const projects: Project[] = [
       'Rental information and documentation',
       'A more transparent rental workflow',
     ],
+    keyDecision:
+      'Separate landlord and tenant task paths while keeping rent status, communication and rental records easy to find.',
     outcome:
-      'The concept brings key rental tasks into one place and explores how clearer information can reduce friction between tenants and landlords.',
+      'Produced a clickable rental-management concept that brings rent tracking, communication and records into one workflow; no live deployment or measured user impact is claimed.',
     technologies: ['Figma', 'Product Strategy', 'UX Research', 'UI Design'],
   },
   {
@@ -75,8 +78,10 @@ export const projects: Project[] = [
       'Clear information hierarchy',
       'Approachable visual feedback',
     ],
+    keyDecision:
+      'Lead with a scannable financial overview and make planning actions approachable before exposing deeper detail.',
     outcome:
-      'The concept demonstrates a simpler way to present personal finance information and encourage more intentional money management.',
+      'Produced a personal-finance concept and linked prototype to demonstrate the dashboard and planning direction; no launch or performance metrics are claimed.',
     technologies: ['Figma', 'Product Design', 'Prototyping', 'UX/UI'],
   },
 
@@ -84,34 +89,37 @@ export const projects: Project[] = [
     name: 'Border Cash', type: 'Finance application · Product concept', desc: 'A finance application concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Fintech', 'Mobile UI'], visual: 'border', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/258677609/FINACE-APPLICATION',
-    overview: 'Project details will be developed from the original Behance presentation.',
-    challenge: 'The original project brief and design context will be added after reviewing the project visuals.',
-    approach: 'The case study will be expanded using the original screens and design process.',
-    solution: 'The product experience will be documented from the original project materials.',
-    highlights: ['Original project visuals', 'Product flow', 'Interface design', 'Design decisions'],
-    outcome: 'Case study details are being prepared.', technologies: ['Figma', 'Product Design', 'UI Design'],
+    overview: 'A finance application product concept documented through the linked Behance presentation.',
+    challenge: 'The concept explores how a finance application can present core money-related tasks in a clear mobile interface.',
+    approach: 'I developed a visual and interaction direction for a focused finance experience, using the linked presentation as the public project record.',
+    solution: 'A mobile finance application interface concept with a clear visual direction.',
+    highlights: ['Finance-focused interface direction', 'Mobile UI exploration', 'Visual hierarchy', 'Portfolio presentation'],
+    keyDecision: 'Keep the interface focused on the primary finance experience and present its visual direction as a concise mobile concept.',
+    outcome: 'Documented the finance-application concept in a Behance presentation; no live deployment, adoption or performance metrics are claimed.', technologies: ['Figma', 'Product Design', 'UI Design'],
   },
   {
     name: 'Ajo Circle', type: 'Group savings · Product concept', desc: 'A digital product concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Fintech', 'Mobile UI'], visual: 'ajo', prototypeUrl: 'https://www.figma.com/proto/JtyYWZw07pP35zCG1ajcyG/Ajo-Circles-%E2%80%94-Savings-App?node-id=2-38&t=7UxA4ZdhB97FrySi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A106&show-proto-sidebar=1', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/257685169/Ajo-circle',
-    overview: 'Project details will be developed from the original Behance presentation.',
-    challenge: 'The original project brief and design context will be added after reviewing the project visuals.',
-    approach: 'The case study will be expanded using the original screens and design process.',
-    solution: 'The product experience will be documented from the original project materials.',
-    highlights: ['Original project visuals', 'Product flow', 'Interface design', 'Design decisions'],
-    outcome: 'Case study details are being prepared.', technologies: ['Figma', 'Product Design', 'UI Design'],
+    overview: 'A group-savings product concept supported by a linked Figma prototype and Behance presentation.',
+    challenge: 'Group savings needs clear contribution expectations, visibility and trust between members of a savings circle.',
+    approach: 'I explored a circle-based experience that makes the shared nature of saving central to the product.',
+    solution: 'A group-savings interface concept for organizing contributions and shared saving activity.',
+    highlights: ['Circle-based savings model', 'Group contribution concepts', 'Mobile interface direction', 'Interactive Figma prototype'],
+    keyDecision: 'Make the savings circle the organizing idea so members can understand the shared goal and their contributions.',
+    outcome: 'Created a group-savings product concept with a linked Figma prototype and Behance presentation; no live deployment or measured impact is claimed.', technologies: ['Figma', 'Product Design', 'UI Design'],
   },
   {
     name: 'PowerWatch', type: 'Power monitoring · Product concept', desc: 'A power-monitoring product concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Monitoring', 'Mobile UI'], visual: 'power', prototypeUrl: 'https://www.figma.com/proto/bTjRgxXR9df2ScuL1kANPm/Power-Monitor-App---Login---Home?t=7UxA4ZdhB97FrySi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=2-2&starting-point-node-id=1%3A2', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/257610769/Power-Monitor',
-    overview: 'Project details will be developed from the original Behance presentation.',
-    challenge: 'The original project brief and design context will be added after reviewing the project visuals.',
-    approach: 'The case study will be expanded using the original screens and design process.',
-    solution: 'The product experience will be documented from the original project materials.',
-    highlights: ['Original project visuals', 'Product flow', 'Interface design', 'Design decisions'],
-    outcome: 'Case study details are being prepared.', technologies: ['Figma', 'Product Design', 'UI Design'],
+    overview: 'A power-monitoring app concept documented through a linked Figma prototype and Behance presentation.',
+    challenge: 'People need a clear way to understand power usage and monitor important status information.',
+    approach: 'I explored a focused app interface that makes essential monitoring information easier to scan.',
+    solution: 'A power-monitoring interface concept with a dashboard-led direction.',
+    highlights: ['At-a-glance monitoring concept', 'Dashboard interface direction', 'Mobile UI exploration', 'Interactive Figma prototype'],
+    keyDecision: 'Prioritize essential usage and monitoring information in a focused dashboard rather than crowding the interface.',
+    outcome: 'Created a power-monitoring app concept with a linked Figma prototype and Behance presentation; no live deployment or measured impact is claimed.', technologies: ['Figma', 'Product Design', 'UI Design'],
   },
 ];
 
