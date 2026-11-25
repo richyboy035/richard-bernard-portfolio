@@ -60,11 +60,6 @@ function ProjectCard({
               className="h-2 w-2 rounded-full"
               style={{ backgroundColor: project.accent }}
             />
-            {project.inDevelopment && (
-              <span className="rounded-full border border-white/15 bg-black/30 px-2 py-1 text-[8px] tracking-wider text-white/65">
-                IN DEVELOPMENT
-              </span>
-            )}
           </div>
           <div>
             <p className="text-[9px] tracking-[.2em] text-white/45">
