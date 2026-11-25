@@ -24,7 +24,7 @@ export const projects: Project[] = [
 
   {
     name: 'RentDirect',
-    type: 'Property technology',
+    type: 'Property technology · Product concept',
     desc: 'A rental management platform for landlords and tenants.',
     tags: ['Product Design', 'UX'],
     visual: 'rent',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
   },
   {
     name: 'PocketPlan',
-    type: 'Personal finance',
+    type: 'Personal finance · Product concept',
     desc: 'A personal finance app for smarter money management.',
     tags: ['Product Design', 'Fintech'],
     visual: 'pocket',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
   },
 
   {
-    name: 'Border Cash', type: 'Finance application', desc: 'A finance application concept. Explore the original project on Behance.',
+    name: 'Border Cash', type: 'Finance application · Product concept', desc: 'A finance application concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Fintech', 'Mobile UI'], visual: 'border', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/258677609/FINACE-APPLICATION',
     overview: 'Project details will be developed from the original Behance presentation.',
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     outcome: 'Case study details are being prepared.', technologies: ['Figma', 'Product Design', 'UI Design'],
   },
   {
-    name: 'Ajo Circle', type: 'Group savings concept', desc: 'A digital product concept. Explore the original project on Behance.',
+    name: 'Ajo Circle', type: 'Group savings · Product concept', desc: 'A digital product concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Fintech', 'Mobile UI'], visual: 'ajo', prototypeUrl: 'https://www.figma.com/proto/JtyYWZw07pP35zCG1ajcyG/Ajo-Circles-%E2%80%94-Savings-App?node-id=2-38&t=7UxA4ZdhB97FrySi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A106&show-proto-sidebar=1', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/257685169/Ajo-circle',
     overview: 'Project details will be developed from the original Behance presentation.',
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     outcome: 'Case study details are being prepared.', technologies: ['Figma', 'Product Design', 'UI Design'],
   },
   {
-    name: 'PowerWatch', type: 'Power monitoring', desc: 'A power-monitoring product concept. Explore the original project on Behance.',
+    name: 'PowerWatch', type: 'Power monitoring · Product concept', desc: 'A power-monitoring product concept. Explore the original project on Behance.',
     tags: ['Product Design', 'Monitoring', 'Mobile UI'], visual: 'power', prototypeUrl: 'https://www.figma.com/proto/bTjRgxXR9df2ScuL1kANPm/Power-Monitor-App---Login---Home?t=7UxA4ZdhB97FrySi-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=2-2&starting-point-node-id=1%3A2', category: 'Product Design', role: 'Product Designer', year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/257610769/Power-Monitor',
     overview: 'Project details will be developed from the original Behance presentation.',
