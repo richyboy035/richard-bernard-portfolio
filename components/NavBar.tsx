@@ -10,6 +10,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 const navigation = [
   { label: 'Home', href: '/#home' },
   { label: 'Work', href: '/#work' },
+  { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Resume', href: '/resume' },
 ];
