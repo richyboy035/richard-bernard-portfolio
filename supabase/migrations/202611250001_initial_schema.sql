@@ -13,7 +13,7 @@ create table if not exists public.projects (
   slug text not null unique,
   name text not null,
   type text not null default '',
-  desc text not null default '',
+  description text not null default '',
   tags text[] not null default '{}',
   visual text not null default 'pocket',
   featured boolean not null default false,
