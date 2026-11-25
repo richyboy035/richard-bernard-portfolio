@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 
 import { contactEmail, contactLinkedIn } from '@/data/contact';
+import ContactForm from '@/components/ContactForm';
 
 export default function Footer({
   invitation,
@@ -84,6 +85,8 @@ export default function Footer({
           {contactEmail}
         </a>
       </div>
+
+      <ContactForm />
 
       {/* Footer bottom */}
       <div className="mt-20 flex flex-col justify-between gap-5 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row md:items-center">
