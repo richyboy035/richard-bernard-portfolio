@@ -238,7 +238,7 @@ export default function AdminDashboard({
                 <div className="grid gap-4 sm:grid-cols-3">
                   <label className={labelClass}>Role<input value={draft.role} onChange={(e) => setField('role', e.target.value)} className={inputClass} /></label>
                   <label className={labelClass}>Year<input value={draft.year} onChange={(e) => setField('year', e.target.value)} className={inputClass} /></label>
-                  <label className={labelClass}>Visual key<select value={draft.visual} onChange={(e) => setField('visual', e.target.value)} className={inputClass}>{['rent','pocket','border','ajo','power','seller','club'].map((item) => <option key={item}>{item}</option>)}</select></label>
+                  <label className={labelClass}>Visual key<select value={draft.visual} onChange={(e) => setField('visual', e.target.value)} className={inputClass}>{['rent','pocket','border','ajo','power','seller','club','portfolio'].map((item) => <option key={item}>{item}</option>)}</select></label>
                 </div>
                 <label className={labelClass}>Tags (comma separated)<input value={draft.tags} onChange={(e) => setField('tags', e.target.value)} className={inputClass} /></label>
                 <label className={labelClass}>Technologies (comma separated)<input value={draft.technologies} onChange={(e) => setField('technologies', e.target.value)} className={inputClass} /></label>
