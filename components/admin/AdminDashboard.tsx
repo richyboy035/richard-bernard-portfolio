@@ -36,7 +36,7 @@ function toDraft(project: ProjectRow): Draft {
     approach: project.approach, solution: project.solution,
     highlights: (project.highlights ?? []).join('\n'), key_decision: project.key_decision,
     outcome: project.outcome, technologies: (project.technologies ?? []).join(', '),
-    cover_image: project.cover_image ?? '', status: project.status, sort_order: project.sort_order,
+    cover_image: project.cover_image ?? '', status: project.status as ProjectStatus, sort_order: project.sort_order,
   };
 }
 
