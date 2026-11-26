@@ -37,7 +37,8 @@ Add the same variables to the Vercel project environment settings, then redeploy
 In Supabase → SQL Editor, run these files in order:
 
 1. `supabase/migrations/202611250001_initial_schema.sql`
-2. `supabase/seed.sql`
+2. `supabase/migrations/20261126115351_tighten_project_policies_and_revoke_auto_enable_rpc.sql`
+3. `supabase/seed.sql`
 
 The migration creates the project table, private contact-message table, admin membership table, RLS policies, and public `project-media` storage bucket. The seed adds the five current product concepts as published records.
 
