@@ -85,5 +85,29 @@ values
   'Prioritize essential usage and monitoring information in a focused dashboard rather than crowding the interface.',
   'Created a power-monitoring app concept with a linked Figma prototype and Behance presentation; no live deployment or measured impact is claimed.',
   array['Figma', 'Product Design', 'UI Design'], 'published', 5
+),
+(
+  'portfolio-platform-cms', 'Portfolio Platform & CMS', 'Personal portfolio · Full-stack build',
+  'A live personal portfolio with a private CMS for publishing projects and managing enquiries.',
+  array['Full-stack Development', 'Next.js', 'Supabase', 'CMS'], 'portfolio', false,
+  'https://richard-bernard-portfolio.vercel.app/', null, null,
+  'Development', 'Product Designer & Full-stack Developer', '2026',
+  'A motion-led personal portfolio paired with a private content-management system, built to present selected work and manage portfolio content without editing application code.',
+  'The portfolio needed to be more than a static showcase: project updates should be manageable through a secure dashboard, drafts should stay private, images should be easy to upload, and contact enquiries should be handled away from the public site.',
+  'Built the public experience with Next.js 15, TypeScript, Tailwind CSS and Framer Motion. Integrated Supabase for PostgreSQL project records, Auth, Storage and row-level security. Added a server-side contact endpoint and deployed the application on Vercel.',
+  'A live public portfolio and a protected /admin workspace where the administrator can create, edit, publish or unpublish projects, upload cover imagery, and review and update contact-message statuses.',
+  array[
+    'Responsive Next.js portfolio with motion-led project presentation',
+    'Supabase PostgreSQL stores project content and publication status',
+    'Supabase Auth and an admin allowlist protect the CMS',
+    'Row-level security separates public reads from privileged project and message operations',
+    'Supabase Storage supports project cover uploads',
+    'A server-side contact endpoint feeds a private admin inbox',
+    'Production deployment on Vercel'
+  ],
+  'Keep privileged operations behind authenticated admin membership and database row-level security, and keep the Supabase secret key on the server. Public visitors can read published project records only.',
+  'Delivered the live portfolio at https://richard-bernard-portfolio.vercel.app/ with an activated administrator account, published project collection, private CMS, cover-image workflow and contact inbox. No analytics, user counts or conversion improvements are claimed.',
+  array['Next.js 15', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'PostgreSQL', 'Supabase Auth', 'Supabase Storage', 'Row Level Security', 'Vercel'],
+  'published', 6
 )
 on conflict (slug) do nothing;
