@@ -1,7 +1,9 @@
--- Richard Bernard portfolio backend
--- Apply this migration in Supabase SQL Editor before configuring the app.
-
+-- Initial backend schema for Richard Bernard's portfolio.
+-- Tables are explicitly granted because this project uses the opt-in Data API defaults.
 create extension if not exists pgcrypto;
+
+create schema if not exists private;
+revoke all on schema private from public;
 
 create table if not exists public.admin_users (
   user_id uuid primary key references auth.users(id) on delete cascade,
@@ -49,9 +51,15 @@ create table if not exists public.contact_messages (
   created_at timestamptz not null default now()
 );
 
+create index if not exists projects_public_order_idx
+  on public.projects (status, sort_order);
+create index if not exists contact_messages_created_at_idx
+  on public.contact_messages (created_at desc);
+
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
+set search_path = ''
 as $$
 begin
   new.updated_at = now();
@@ -64,57 +72,67 @@ create trigger projects_set_updated_at
 before update on public.projects
 for each row execute procedure public.set_updated_at();
 
-create or replace function public.is_admin()
+-- Admin check is deliberately outside the exposed public API schema.
+create or replace function private.is_admin()
 returns boolean
 language sql
 stable
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
   select exists (
-    select 1 from public.admin_users
+    select 1
+    from public.admin_users
     where user_id = (select auth.uid())
   );
 $$;
 
-revoke all on function public.is_admin() from public;
-grant execute on function public.is_admin() to anon, authenticated;
+revoke all on function private.is_admin() from public;
+grant usage on schema private to authenticated;
+grant execute on function private.is_admin() to authenticated;
 
 alter table public.admin_users enable row level security;
 alter table public.projects enable row level security;
 alter table public.contact_messages enable row level security;
 
+-- Explicit Data API grants (RLS below still controls row access).
 grant select on public.projects to anon, authenticated;
 grant insert, update, delete on public.projects to authenticated;
 grant select on public.admin_users to authenticated;
 grant select, update on public.contact_messages to authenticated;
+grant insert on public.contact_messages to service_role;
 
 drop policy if exists "Admins can read their admin membership" on public.admin_users;
 create policy "Admins can read their admin membership"
 on public.admin_users for select to authenticated
-using (user_id = (select auth.uid()) or public.is_admin());
+using (user_id = (select auth.uid()));
 
 drop policy if exists "Published projects are public" on public.projects;
 create policy "Published projects are public"
 on public.projects for select to anon, authenticated
-using (status = 'published' or public.is_admin());
+using (status = 'published');
+
+drop policy if exists "Admins read all projects" on public.projects;
+create policy "Admins read all projects"
+on public.projects for select to authenticated
+using ((select private.is_admin()));
 
 drop policy if exists "Admins manage projects" on public.projects;
 create policy "Admins manage projects"
 on public.projects for all to authenticated
-using (public.is_admin())
-with check (public.is_admin());
+using ((select private.is_admin()))
+with check ((select private.is_admin()));
 
 drop policy if exists "Admins read contact messages" on public.contact_messages;
 create policy "Admins read contact messages"
 on public.contact_messages for select to authenticated
-using (public.is_admin());
+using ((select private.is_admin()));
 
 drop policy if exists "Admins update contact messages" on public.contact_messages;
 create policy "Admins update contact messages"
 on public.contact_messages for update to authenticated
-using (public.is_admin())
-with check (public.is_admin());
+using ((select private.is_admin()))
+with check ((select private.is_admin()));
 
 -- Public image delivery; uploads and changes remain admin-only.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
@@ -138,18 +156,18 @@ using (bucket_id = 'project-media');
 drop policy if exists "Admins upload project media" on storage.objects;
 create policy "Admins upload project media"
 on storage.objects for insert to authenticated
-with check (bucket_id = 'project-media' and public.is_admin());
+with check (bucket_id = 'project-media' and (select private.is_admin()));
 
 drop policy if exists "Admins update project media" on storage.objects;
 create policy "Admins update project media"
 on storage.objects for update to authenticated
-using (bucket_id = 'project-media' and public.is_admin())
-with check (bucket_id = 'project-media' and public.is_admin());
+using (bucket_id = 'project-media' and (select private.is_admin()))
+with check (bucket_id = 'project-media' and (select private.is_admin()));
 
 drop policy if exists "Admins delete project media" on storage.objects;
 create policy "Admins delete project media"
 on storage.objects for delete to authenticated
-using (bucket_id = 'project-media' and public.is_admin());
+using (bucket_id = 'project-media' and (select private.is_admin()));
 
--- Contact inserts use the server-only Supabase secret key.
--- Do not grant anonymous insert or select access to contact_messages.
+-- Contact messages are created server-side with the secret key.
+-- No anonymous insert, select, or update policy is provided.
