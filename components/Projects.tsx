@@ -97,6 +97,12 @@ function ProjectVisual({
       accent: '#c5a3ff',
       palette: 'from-[#2a1b3a] to-[#111]',
     },
+    portfolio: {
+      title: 'Portfolio Platform & CMS',
+      subtitle: 'FULL STACK · PERSONAL BRAND',
+      accent: '#c5ff36',
+      palette: 'from-[#19332e] via-[#111f1d] to-[#090a09]',
+    },
   };
 
   const item = visuals[kind] ?? visuals.pocket;
@@ -106,7 +112,7 @@ function ProjectVisual({
     <div
       className={`relative w-full overflow-hidden bg-gradient-to-br ${
         item.palette
-      } ${fitContent && imageSource ? 'h-auto' : 'h-full'}`}
+      } ${fitContent && imageSource ? 'h-auto' : fitContent ? 'aspect-[16/9]' : 'h-full'}`}
     >
       {!fitContent && (
         <div
